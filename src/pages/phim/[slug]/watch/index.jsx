@@ -48,13 +48,13 @@ const MovieWatchPage = ({ movie, episodes, newMovies }) => {
             {episodes.map((episode, index) => (
               <div className='rounded-2xl bg-gray-950 px-4 py-4 lg:py-6' key={index}>
                 <h2 className="text-gray-200 text-base font-medium mb-4">{episode.server_name}</h2>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {
                     episode.server_data.map((data, idx) => (
                       <div
                         key={idx}
                         onClick={() => setEmbedURL(data.link_embed)}
-                        className="bg-green-600 hover:bg-green-700 rounded-xl px-4 py-1 cursor-pointer text-sm text-white">{data.name}</div>
+                        className="bg-green-600 hover:bg-green-700 rounded-xl px-2 lg:px-4 py-1 cursor-pointer text-xs lg:text-sm text-white">{data.name}</div>
                     ))
                   }
                 </div>
