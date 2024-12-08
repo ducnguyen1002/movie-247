@@ -3,6 +3,7 @@ import MovieSliderBasic from '@/components/common/movie-slider-basic'
 import React, { useState } from 'react'
 import { getMoviesDetailBySlug, getNewUpdatedMovies } from '@/services/movie';
 import MovieDetailTable from '@/components/common/movie-detail-table';
+import Head from 'next/head';
 
 /**
  * Layout
@@ -28,7 +29,14 @@ export async function getServerSideProps(context) {
 const MovieWatchPage = ({ movie, episodes, newMovies }) => {
   const [embedURL, setEmbedURL] = useState(episodes[0].server_data[0].link_embed)
   return (
-    <div className=''>
+    <>
+      <Head>
+        <title>Movie 247 | {movie.name}</title>
+        <meta name="description" content={movie.content} />
+        <meta property="og:title" content={`Movie 247 | ${movie.name}`} />
+        <meta property="og:description" content={movie.content} />
+        <meta property="og:image" content={movie.poster_url || '/default-poster.jpg'} />
+      </Head>
       <div className="container mx-auto px-4 lg:px-10 pt-20 bg-gradient-to-b from-gray-950 via-gray-700 to-gray-950">
         <iframe src={embedURL} allowFullScreen frameborder="0" className='w-full h-[40vh] lg:h-[80vh]'></iframe>
         <h1 className="text-white text-xl lg:text-2xl font-bold mt-4 mb-6">{movie.name}</h1>
@@ -55,7 +63,7 @@ const MovieWatchPage = ({ movie, episodes, newMovies }) => {
         </div>
       </div>
       <MovieSliderBasic movies={newMovies.items} title={"Phim mới cập nhật"} />
-    </div>
+    </>
   )
 }
 

@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 const BrandMarquee = dynamic(() => import('@/components/common/brand-marquee'));
 const HeroSlider = dynamic(() => import('@/components/common/hero-slider'));
@@ -32,9 +33,12 @@ export default function Home({
   hoathinhMovies,
   tvshowMovies
 }) {
-  console.log("🚀 ~ getServerSideProps ~ phimLeMovies:", phimLeMovies)
   return (
     <>
+      <Head>
+        <title>Movie 247</title>
+        <meta name="description" content={"Xem phim miễn phí, cập nhật 24/7"} />
+      </Head>
       <HeroSlider movies={newMovies.items} />
       <BrandMarquee />
       <MovieSliderPrimary title={"Phim lẻ"} movies={phimLeMovies.data.items} />
