@@ -6,7 +6,7 @@ export const MovieCardPrimary = ({ movie }) => {
   return (
     <Link
       href={`/phim/${movie.slug}`}
-      className="p-6 relative h-[400px] rounded-2xl overflow-hidden flex flex-col 
+      className="p-4 lg:p-6 relative h-[400px] rounded-2xl overflow-hidden flex flex-col 
       justify-end border border-transparent hover:border-gray-400 group">
       <div className="absolute inset-0 -z-10">
         <Image

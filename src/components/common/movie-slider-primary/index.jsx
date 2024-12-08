@@ -12,12 +12,23 @@ const MovieSliderPrimary = ({ title, movies }) => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className="relative bg-gray-950 container mx-auto px-10 py-12">
+    <div className="relative bg-gray-950 container mx-auto px-4 py-6 lg:px-10 lg:py-12">
       <h2 className="text-white text-2xl font-bold mb-4">{title}</h2>
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={4.5}
+        breakpoints={{
+          320: {
+            slidesPerView: 1.2, // Mobile
+          },
+          768: {
+            slidesPerView: 3.5, // Tablet
+          },
+          1024: {
+            slidesPerView: 4.5, // Desktop
+          },
+        }}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}

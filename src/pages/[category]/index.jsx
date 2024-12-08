@@ -25,9 +25,8 @@ export async function getServerSideProps(context) {
 
 const CategoryPage = ({ movies, category }) => {
   const { data: { items, params: { pagination } } } = movies
-  console.log("🚀 ~ CategoryPage ~ items:", items)
   return (
-    <div className="container mx-auto px-10 py-20 bg-gray-950">
+    <div className="container mx-auto px-4 py-16 lg:px-10 lg:py-20 bg-gray-950">
       <div className="mb-10 grid gap-x-4 gap-y-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         {
           items.map((item, index) => (

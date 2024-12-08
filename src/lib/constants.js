@@ -38,11 +38,11 @@ export const SOCIAL_LINKS = [
   {
     name: "facebook",
     link: "https://facebook.com/ducduc.1002",
-    icon: <FaSquareFacebook size={24} />
+    icon: <FaSquareFacebook className="text-base md:text-xl lg:text-2xl" />
   },
   {
     name: "google",
     link: "https://facebook.com/ducduc.1002",
-    icon: <SiGmail size={24} />
+    icon: <SiGmail className="text-base md:text-xl lg:text-2xl" />
   },
 ]

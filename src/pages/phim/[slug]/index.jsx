@@ -22,11 +22,10 @@ export async function getServerSideProps(context) {
   }
 }
 const MovieDetailPage = ({ movie, slug, episodes, newMovies }) => {
-  console.log("🚀 ~ MovieDetailPage ~ episodes:", episodes)
   return (
     <div className=''>
       <HeroSingleMovie movie={movie} primaryBtnTitle="Xem ngay" primaryBtnURL={`/phim/${slug}/watch`} />
-      <div className="container mx-auto px-10 py-10 bg-gray-950">
+      <div className="container mx-auto px-4 lg:px-10 py-10 bg-gray-950">
         <div className="overflow-x-auto">
           <MovieDetailTable movie={movie} />
         </div>

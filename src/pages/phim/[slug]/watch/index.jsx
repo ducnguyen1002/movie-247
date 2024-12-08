@@ -29,14 +29,14 @@ const MovieWatchPage = ({ movie, episodes, newMovies }) => {
   const [embedURL, setEmbedURL] = useState(episodes[0].server_data[0].link_embed)
   return (
     <div className=''>
-      <div className="container mx-auto px-10 pt-20 bg-gradient-to-b from-gray-950 via-gray-700 to-gray-950">
-        <iframe src={embedURL} allowFullScreen frameborder="0" className='w-full h-[40%] lg:h-[80vh]'></iframe>
-        <h1 className="text-white text-2xl font-bold mt-4 mb-6">{movie.name}</h1>
-        <div className="overflow-x-auto bg-gray-900 rounded-2xl  px-4 py-6 flex flex-col lg:flex-row">
+      <div className="container mx-auto px-4 lg:px-10 pt-20 bg-gradient-to-b from-gray-950 via-gray-700 to-gray-950">
+        <iframe src={embedURL} allowFullScreen frameborder="0" className='w-full h-[40vh] lg:h-[80vh]'></iframe>
+        <h1 className="text-white text-xl lg:text-2xl font-bold mt-4 mb-6">{movie.name}</h1>
+        <div className="overflow-x-auto bg-gray-900 rounded-2xl px-4 py-4 lg:py-6 flex flex-col lg:flex-row">
           <MovieDetailTable movie={movie} />
-          <div className="w-1/2 flex flex-col gap-4">
+          <div className="mt-4 lg:mt-0 w-full lg:w-1/2 flex flex-col gap-4">
             {episodes.map((episode, index) => (
-              <div className='rounded-2xl bg-gray-950 px-4 py-6' key={index}>
+              <div className='rounded-2xl bg-gray-950 px-4 py-4 lg:py-6' key={index}>
                 <h2 className="text-gray-200 text-base font-medium mb-4">{episode.server_name}</h2>
                 <div className="flex gap-2">
                   {

@@ -19,7 +19,6 @@ const DesktopHeader = () => {
 const DesktopNav = () => {
   const activeItemRef = useRef(null);
   const [activeItem, setActiveItem] = useState(NAV_ITEMS[0]);
-  const [activePosition, setActivePosition] = useState({ left: 0, width: 0, top: -100 });
   const router = useRouter();
   const segment = router.query.category;
 
@@ -27,13 +26,6 @@ const DesktopNav = () => {
     setActiveItem(item);
     activeItemRef.current = ref;
     router.push(item.link);
-  };
-
-  const calculateActivePosition = (el) => {
-    if (el) {
-      const { offsetLeft, offsetWidth } = el;
-      setActivePosition({ left: offsetLeft, width: offsetWidth, top: 0 });
-    }
   };
 
   useEffect(() => {
@@ -45,21 +37,8 @@ const DesktopNav = () => {
     }
   }, [segment]);
 
-  useEffect(() => {
-    calculateActivePosition(activeItemRef.current);
-  }, [activeItem, segment]);
-
   return (
     <div className="relative">
-      <div
-        className="absolute z-10 border-[2px] border-slate-200 bg-slate-50/10 h-full rounded-3xl transition-all duration-200"
-        style={{
-          left: `${activePosition.left - 12}px`,
-          top: `${activePosition.top}px`,
-          width: `${activePosition.width + 24}px`,
-        }}
-      ></div>
-
       <div className="glass-effect flex gap-6 px-4 py-2 rounded-3xl relative z-0">
         {NAV_ITEMS.map(item => (
           <Link
