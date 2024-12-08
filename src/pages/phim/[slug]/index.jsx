@@ -28,6 +28,8 @@ const MovieDetailPage = ({ movie, slug, episodes, newMovies }) => {
         <meta property="og:title" content={`Movie 247 | ${movie.name}`} />
         <meta property="og:description" content={movie.content} />
         <meta property="og:image" content={movie.poster_url || '/default-poster.jpg'} />
+        <meta property="og:image:width" content={'1200'} />
+        <meta property="og:image" content={'630'} />
       </Head>
       <div>
         <HeroSingleMovie movie={movie} primaryBtnTitle="Xem ngay" primaryBtnURL={`/phim/${slug}/watch`} />
