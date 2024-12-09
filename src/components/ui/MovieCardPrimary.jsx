@@ -14,7 +14,6 @@ export const MovieCardPrimary = ({ movie }) => {
           alt={movie.name}
           fill
           loading="lazy"
-          quality={100}
           placeholder="blur"
           blurDataURL={getImgURL(movie.poster_url)}
           className='group-hover:scale-105 transition-all duration-500 object-cover'

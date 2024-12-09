@@ -12,7 +12,6 @@ const MovieCardBase = ({ movie }) => {
           width={400}
           height={800}
           loading="lazy"
-          quality={100}
           placeholder="blur"
           blurDataURL={getImgURL(movie.poster_url)}
           className="rounded-2xl hover:scale-105 transition-all duration-500 object-cover"

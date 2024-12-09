@@ -17,12 +17,12 @@ const MovieSliderSecondary = ({ movies }) => {
     <div className="min-h-screen container mx-auto py-12 px-4 lg:px-10 flex flex-col-reverse lg:flex-row gap-10 items-center relative ">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-950 via-transparent to-gray-950"></div>
       <Image
-        src={getImgURL(movies[activeIndex].poster_url)}
+        src={getImgURL(movies[activeIndex].thumb_url)}
         alt="movie poster"
         fill
         loading='lazy'
         quality={25}
-        blurDataURL={getImgURL(movies[activeIndex].poster_url)}
+        blurDataURL={getImgURL(movies[activeIndex].thumb_url)}
         placeholder='blur'
         className="absolute inset-0 -z-20 blur object-cover" />
       <div className="absolute bottom-0 right-0 h-full w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>

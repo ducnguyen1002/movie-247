@@ -41,14 +41,15 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
   <div className='min-h-screen w-full container mx-auto px-4 pb-20 lg:pb-0 pt-20 lg:px-10 flex items-end lg:items-center relative'>
     <div className="absolute inset-0 -z-10">
       <Image
-        src={getImgURL(movie.poster_url)}
+        src={getImgURL(movie.thumb_url)}
         alt={movie.name}
-        fill
+        width={1500}
+        height={800}
         className="object-cover"
         priority={true}
         quality={100}
         placeholder="blur"
-        blurDataURL={movie.poster_url}
+        blurDataURL={movie.thumb_url}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950"></div>
     </div>
