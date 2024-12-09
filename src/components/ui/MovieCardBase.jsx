@@ -5,12 +5,12 @@ import Link from "next/link"
 const MovieCardBase = ({ movie }) => {
   return (
     <Link href={`/phim/${movie.slug}`}>
-      <div className="mb-4 h-[180px] lg:h-[240px] overflow-hidden rounded-2xl">
+      <div className="mb-4 h-[200px] lg:h-[240px] overflow-hidden rounded-2xl">
         <Image
           src={getImgURL(movie.poster_url)}
           alt={movie.name}
           width={400}
-          height={400}
+          height={800}
           loading="lazy"
           quality={100}
           placeholder="blur"

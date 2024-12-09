@@ -20,7 +20,7 @@ const MovieSliderPrimary = ({ title, movies }) => {
         slidesPerView={4.5}
         breakpoints={{
           320: {
-            slidesPerView: 1.2, // Mobile
+            slidesPerView: 2.2, // Mobile
           },
           768: {
             slidesPerView: 3.5, // Tablet
@@ -48,24 +48,24 @@ const MovieSliderPrimary = ({ title, movies }) => {
 
       {/* Nút Prev */}
       {!isBeginning && (
-        <>
+        <div className='hidden lg:block'>
           <div className="absolute bottom-0 left-0 h-[85%] w-1/5 z-20 bg-gradient-to-l from-transparent to-gray-950 pointer-events-none"></div>
           <FaCircleChevronLeft
             className="absolute z-30 top-1/2 left-6 text-gray-300 hover:text-gray-200 text-3xl cursor-pointer"
             onClick={() => swiperRef.current?.slidePrev()}
           />
-        </>
+        </div>
       )}
 
       {/* Nút Next */}
       {!isEnd && (
-        <>
+        <div className='hidden lg:block'>
           <div className="absolute bottom-0 right-0 h-full w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>
           <FaCircleChevronRight
             className="absolute z-30 top-1/2 right-6 text-gray-300 hover:text-gray-200 text-3xl cursor-pointer"
             onClick={() => swiperRef.current?.slideNext()}
           />
-        </>
+        </div>
       )}
     </div>
   );

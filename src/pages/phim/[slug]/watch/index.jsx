@@ -37,7 +37,7 @@ const MovieWatchPage = ({ movie, episodes, newMovies }) => {
         <meta property="og:description" content={movie.content} />
         <meta property="og:image" content={movie.poster_url || '/default-poster.jpg'} />
         <meta property="og:image:width" content={'1200'} />
-        <meta property="og:image" content={'630'} />
+        <meta property="og:image:height" content={'630'} />
       </Head>
       <div className="container mx-auto px-4 lg:px-10 pt-20 bg-gradient-to-b from-gray-950 via-gray-700 to-gray-950">
         <iframe src={embedURL} allowFullScreen frameborder="0" className='w-full h-[40vh] lg:h-[80vh]'></iframe>

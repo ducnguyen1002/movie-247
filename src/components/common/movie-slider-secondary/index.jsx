@@ -24,8 +24,7 @@ const MovieSliderSecondary = ({ movies }) => {
         quality={25}
         blurDataURL={getImgURL(movies[activeIndex].poster_url)}
         placeholder='blur'
-        objectFit='cover'
-        className="absolute inset-0 -z-20 blur" />
+        className="absolute inset-0 -z-20 blur object-cover" />
       <div className="absolute bottom-0 right-0 h-full w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>
       <FaCircleChevronRight
         className="hidden lg:block absolute z-30 top-1/2 right-6 text-gray-300 hover:text-gray-200 text-3xl cursor-pointer"

@@ -44,7 +44,7 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
         src={getImgURL(movie.poster_url)}
         alt={movie.name}
         fill
-        objectFit="cover"
+        className="object-cover"
         priority={true}
         quality={100}
         placeholder="blur"

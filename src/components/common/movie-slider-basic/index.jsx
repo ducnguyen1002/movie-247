@@ -20,7 +20,7 @@ const MovieSliderBasic = ({ title, movies }) => {
         slidesPerView={4.5}
         breakpoints={{
           320: {
-            slidesPerView: 1.2, // Mobile
+            slidesPerView: 2.2, // Mobile
           },
           768: {
             slidesPerView: 3.5, // Tablet
