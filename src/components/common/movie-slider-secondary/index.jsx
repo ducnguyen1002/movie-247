@@ -18,8 +18,9 @@ const MovieSliderSecondary = ({ movies }) => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-950 via-transparent to-gray-950"></div>
       <Image
         src={getImgURL(movies[activeIndex].thumb_url)}
-        alt="movie poster"
-        fill
+        alt="movie thumb"
+        width={1500}
+        height={800}
         loading='lazy'
         quality={25}
         blurDataURL={getImgURL(movies[activeIndex].thumb_url)}

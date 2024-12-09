@@ -12,7 +12,8 @@ export const MovieCardPrimary = ({ movie }) => {
         <Image
           src={getImgURL(movie.poster_url)}
           alt={movie.name}
-          fill
+          width={360}
+          height={400}
           loading="lazy"
           placeholder="blur"
           blurDataURL={getImgURL(movie.poster_url)}
