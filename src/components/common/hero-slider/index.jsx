@@ -43,9 +43,8 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
       <Image
         src={getImgURL(movie.thumb_url)}
         alt={movie.name}
-        width={0}
-        height={0}
-        className="size-full"
+        fill
+        sizes='100w'
         style={{ objectFit: "cover" }}
         priority={true}
         loading="eager"

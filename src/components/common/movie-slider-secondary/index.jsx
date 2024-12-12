@@ -19,8 +19,8 @@ const MovieSliderSecondary = ({ movies }) => {
       <Image
         src={getImgURL(movies[activeIndex].thumb_url)}
         alt="movie thumb"
-        width={0}
-        height={0}
+        fill
+        sizes='100w'
         style={{ objectFit: "cover", objectPosition: "center" }}
         loading='eager'
         priority
