@@ -19,14 +19,15 @@ const MovieSliderSecondary = ({ movies }) => {
       <Image
         src={getImgURL(movies[activeIndex].thumb_url)}
         alt="movie thumb"
-        fill
+        width={0}
+        height={0}
         style={{ objectFit: "cover", objectPosition: "center" }}
         loading='eager'
         priority
         quality={10}
         blurDataURL={getImgURL(movies[activeIndex].thumb_url)}
         placeholder='blur'
-        className="absolute inset-0 -z-20 blur object-cover" />
+        className="size-full absolute inset-0 -z-20 blur" />
       <div className="absolute bottom-0 right-0 h-full w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>
       <FaCircleChevronRight
         className="hidden lg:block absolute z-30 top-1/2 right-6 text-gray-300 hover:text-gray-200 text-3xl cursor-pointer"
