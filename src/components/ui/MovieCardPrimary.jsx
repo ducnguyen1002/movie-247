@@ -12,9 +12,10 @@ export const MovieCardPrimary = ({ movie }) => {
         <Image
           src={getImgURL(movie.poster_url)}
           alt={movie.name}
-          fill
+          width={300}
+          height={450}
           style={{ objectFit: "cover" }}
-          loading="lazy"
+          loading="eager"
           placeholder="blur"
           blurDataURL={getImgURL(movie.poster_url)}
           className='group-hover:scale-105 transition-all duration-500'

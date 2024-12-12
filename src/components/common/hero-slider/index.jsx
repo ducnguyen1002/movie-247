@@ -47,7 +47,6 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
         style={{ objectFit: "cover" }}
         priority={true}
         loading="eager"
-        quality={100}
         placeholder="blur"
         blurDataURL={movie.thumb_url}
       />
