@@ -17,11 +17,11 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      newMovies: newMovies,
-      phimLeMovies: phimLeMovies,
-      phimBoMovies: phimBoMovies,
-      hoathinhMovies: hoathinhMovies,
-      tvshowMovies: tvshowMovies,
+      newMovies: newMovies || [],
+      phimLeMovies: phimLeMovies || [],
+      phimBoMovies: phimBoMovies || [],
+      hoathinhMovies: hoathinhMovies || [],
+      tvshowMovies: tvshowMovies || [],
     }
   }
 }

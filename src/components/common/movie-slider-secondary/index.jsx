@@ -19,10 +19,11 @@ const MovieSliderSecondary = ({ movies }) => {
       <Image
         src={getImgURL(movies[activeIndex].thumb_url)}
         alt="movie thumb"
-        width={1500}
-        height={800}
-        loading='lazy'
-        quality={25}
+        fill
+        style={{ objectFit: "cover", objectPosition: "center" }}
+        loading='eager'
+        priority
+        quality={10}
         blurDataURL={getImgURL(movies[activeIndex].thumb_url)}
         placeholder='blur'
         className="absolute inset-0 -z-20 blur object-cover" />

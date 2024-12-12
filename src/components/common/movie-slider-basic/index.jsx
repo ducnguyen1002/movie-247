@@ -49,7 +49,7 @@ const MovieSliderBasic = ({ title, movies }) => {
       {/* Nút Prev */}
       {!isBeginning && (
         <div className='hidden lg:block'>
-          <div className="absolute bottom-0 left-0 h-[85%] w-1/5 z-20 bg-gradient-to-l from-transparent to-gray-950 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 h-[80%] w-1/5 z-20 bg-gradient-to-l from-transparent to-gray-950 pointer-events-none"></div>
           <FaCircleChevronLeft
             className="absolute z-30 top-1/2 left-6 text-gray-300 hover:text-gray-200 text-3xl cursor-pointer"
             onClick={() => swiperRef.current?.slidePrev()}

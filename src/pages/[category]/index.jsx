@@ -16,7 +16,7 @@ export async function getServerSideProps(context) {
   const movies = await getMoviesByCategory(category, page)
   return {
     props: {
-      movies: movies,
+      movies: movies || [],
       category: category
     }
   }

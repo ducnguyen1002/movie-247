@@ -10,7 +10,7 @@ const MovieCardBase = ({ movie }) => {
           src={getImgURL(movie.poster_url)}
           alt={movie.name}
           width={400}
-          height={800}
+          height={600}
           loading="lazy"
           placeholder="blur"
           blurDataURL={getImgURL(movie.poster_url)}

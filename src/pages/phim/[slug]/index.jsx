@@ -13,8 +13,8 @@ export async function getServerSideProps(context) {
     props: {
       slug,
       movie,
-      episodes,
-      newMovies,
+      episodes: episodes || [],
+      newMovies: newMovies || [],
     },
   };
 }

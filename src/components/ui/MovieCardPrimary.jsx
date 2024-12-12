@@ -12,17 +12,17 @@ export const MovieCardPrimary = ({ movie }) => {
         <Image
           src={getImgURL(movie.poster_url)}
           alt={movie.name}
-          width={360}
-          height={400}
+          fill
+          style={{ objectFit: "cover" }}
           loading="lazy"
           placeholder="blur"
           blurDataURL={getImgURL(movie.poster_url)}
-          className='group-hover:scale-105 transition-all duration-500 object-cover'
+          className='group-hover:scale-105 transition-all duration-500'
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
       </div>
-      <div className="mb-1 text-white text-base font-bold">{movie.name}</div>
-      <div className='text-sm text-gray-400'>{movie.origin_name} &middot; {movie.year} </div>
+      <div className="mb-1 text-white text-base font-bold line-clamp-2">{movie.name}</div>
+      <div className='text-sm text-gray-400 line-clamp-1'>{movie.origin_name} &middot; {movie.year} </div>
     </Link>
   )
 }

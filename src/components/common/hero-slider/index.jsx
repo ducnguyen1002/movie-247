@@ -43,10 +43,10 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
       <Image
         src={getImgURL(movie.thumb_url)}
         alt={movie.name}
-        width={1500}
-        height={800}
-        className="object-cover"
+        fill
+        style={{ objectFit: "cover" }}
         priority={true}
+        loading="eager"
         quality={100}
         placeholder="blur"
         blurDataURL={movie.thumb_url}
