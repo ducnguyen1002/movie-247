@@ -22,7 +22,7 @@ const TheFooter = () => {
           <div className="flex mt-6 gap-2 lg:mt-0 justify-center md:justify-end">
             {
               SOCIAL_LINKS.map(item => (
-                <Link className='text-white ml-0 lg:ml-2' key={item.link} href={item.link}>{item.icon}</Link>
+                <Link className='text-white ml-0 lg:ml-2' aria-label={item.name} key={item.link} href={item.link}>{item.icon}</Link>
               ))
             }
           </div>

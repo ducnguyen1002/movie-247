@@ -39,7 +39,7 @@ export default function Home({
         <title>Movie 247</title>
         <meta name="description" content={"Xem phim miễn phí, cập nhật 24/7"} />
       </Head>
-      <HeroSlider movies={newMovies.items} />
+      <HeroSlider movies={newMovies?.items || []} />
       <BrandMarquee />
       <MovieSliderPrimary title={"Phim lẻ"} movies={phimLeMovies?.data?.items || []} />
       <MovieSliderSecondary movies={phimBoMovies?.data?.items || []} />

@@ -43,6 +43,7 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
       src={getImgURL(movie.thumb_url)}
       alt={movie.name}
       fill
+      sizes="100vw"
       style={{ objectFit: "cover" }}
       priority={true}
       loading="eager"
@@ -53,7 +54,7 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950"></div>
     <div className="flex flex-col gap-2 w-full lg:w-1/2">
       <div className='w-fit px-2 py-1 lg:px-4 lg:py-2 rounded-xl bg-gray-800 text-white text-xs font-semibold'>{movie.quality || "HD"}</div>
-      <div className='text-xl lg:text-[64px] leading-none font-extrabold text-white'>{movie.name}</div>
+      <div className='w-full h-[64px] text-xl lg:text-[64px] leading-none font-extrabold text-white'>{movie.name}</div>
       <div className='text-sm text-gray-400 font-semibold mt-2 mb-4 lg:mt-4 lg:mb-8'>{movie.origin_name} &middot; {movie.year} </div>
       {movie.content && (
         <div className='mb-6 text-gray-100 font-semibold' dangerouslySetInnerHTML={{ __html: movie.content }}></div>
@@ -65,7 +66,7 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
           <FaPlayCircle />
           {primaryBtnTitle}
         </Link>
-        <button 
+        <button
           className='px-4 py-2 lg:px-6 lg:py-4 rounded-2xl flex items-center gap-2 bg-transparent border border-white text-white text-sm lg:text-base font-semibold'
           aria-label="save the movie"
         >
