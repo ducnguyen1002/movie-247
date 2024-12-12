@@ -17,11 +17,11 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      newMovies: newMovies || [],
-      phimLeMovies: phimLeMovies || [],
-      phimBoMovies: phimBoMovies || [],
-      hoathinhMovies: hoathinhMovies || [],
-      tvshowMovies: tvshowMovies || [],
+      newMovies: newMovies || {},
+      phimLeMovies: phimLeMovies || {},
+      phimBoMovies: phimBoMovies || {},
+      hoathinhMovies: hoathinhMovies || {},
+      tvshowMovies: tvshowMovies || {},
     }
   }
 }
@@ -41,10 +41,10 @@ export default function Home({
       </Head>
       <HeroSlider movies={newMovies.items} />
       <BrandMarquee />
-      <MovieSliderPrimary title={"Phim lẻ"} movies={phimLeMovies.data.items} />
-      <MovieSliderSecondary movies={phimBoMovies.data.items} />
-      <MovieSliderBasic title={"Hoạt hình"} movies={hoathinhMovies.data.items} />
-      <MovieSliderBasic title={"TV Shows"} movies={tvshowMovies.data.items} />
+      <MovieSliderPrimary title={"Phim lẻ"} movies={phimLeMovies?.data?.items || []} />
+      <MovieSliderSecondary movies={phimBoMovies?.data?.items || []} />
+      <MovieSliderBasic title={"Hoạt hình"} movies={hoathinhMovies?.data?.items || []} />
+      <MovieSliderBasic title={"TV Shows"} movies={tvshowMovies?.data?.items || []} />
     </>
   );
 }

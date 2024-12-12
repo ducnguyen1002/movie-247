@@ -39,20 +39,18 @@ const HeroSlider = ({ movies }) => {
 
 export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
   <div className='min-h-screen w-full container mx-auto px-4 pb-20 lg:pb-0 pt-20 lg:px-10 flex items-end lg:items-center relative'>
-    <div className="absolute inset-0 -z-10">
-      <Image
-        src={getImgURL(movie.thumb_url)}
-        alt={movie.name}
-        fill
-        sizes='100w'
-        style={{ objectFit: "cover" }}
-        priority={true}
-        loading="eager"
-        placeholder="blur"
-        blurDataURL={movie.thumb_url}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950"></div>
-    </div>
+    <Image
+      src={getImgURL(movie.thumb_url)}
+      alt={movie.name}
+      fill
+      style={{ objectFit: "cover" }}
+      priority={true}
+      loading="eager"
+      placeholder="blur"
+      blurDataURL={movie.thumb_url}
+      className="absolute inset-0 -z-10"
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950"></div>
     <div className="flex flex-col gap-2 w-full lg:w-1/2">
       <div className='w-fit px-2 py-1 lg:px-4 lg:py-2 rounded-xl bg-gray-800 text-white text-xs font-semibold'>{movie.quality || "HD"}</div>
       <div className='text-xl lg:text-[64px] leading-none font-extrabold text-white'>{movie.name}</div>
@@ -67,7 +65,10 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
           <FaPlayCircle />
           {primaryBtnTitle}
         </Link>
-        <button className='px-4 py-2 lg:px-6 lg:py-4 rounded-2xl flex items-center gap-2 bg-transparent border border-white text-white text-sm lg:text-base font-semibold'>
+        <button 
+          className='px-4 py-2 lg:px-6 lg:py-4 rounded-2xl flex items-center gap-2 bg-transparent border border-white text-white text-sm lg:text-base font-semibold'
+          aria-label="save the movie"
+        >
           <FaRegBookmark />
         </button>
       </div>

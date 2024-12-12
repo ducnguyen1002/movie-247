@@ -7,15 +7,12 @@
 	--foreground: #171717;
 }
 
-@layer utilities {
-}
+@layer utilities {}
 
 @layer base {
-	* {
-	}
-
 	body {
 		font-family: "Inter", serif;
+		font-display: swap;
 	}
 
 	.glass-effect {

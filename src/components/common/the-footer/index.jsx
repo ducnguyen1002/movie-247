@@ -14,7 +14,7 @@ const TheFooter = () => {
           <div className="flex justify-center lg:justify-end flex-wrap">
             {
               NAV_ITEMS.map(item => (
-                <Link className='text-white mx-2 lg:ml-4 text-xs md:text-sm lg:text-base' key={item.link} href={item.link}>/{item.name}</Link>
+                <Link className='text-white mx-2 lg:ml-4 text-xs md:text-sm lg:text-base' aria-label={item.name} key={item.link} href={item.link}>/{item.name}</Link>
               ))
             }
           </div>

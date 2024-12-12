@@ -44,7 +44,10 @@ const MovieSliderSecondary = ({ movies }) => {
               <FaPlayCircle />
               Xem chi tiết
             </Link>
-            <button className='px-4 py-2 lg:px-6 lg:py-4 rounded-2xl flex items-center gap-2 bg-transparent border border-white text-white text-sm lg:text-base font-semibold'>
+            <button
+              className='px-4 py-2 lg:px-6 lg:py-4 rounded-2xl flex items-center gap-2 bg-transparent border border-white text-white text-sm lg:text-base font-semibold'
+              aria-label="save the movie"
+            >
               <FaRegBookmark />
             </button>
           </div>
