@@ -2,7 +2,7 @@ import { default as axios } from "axios";
 
 export const axiosInstance = axios.create({
   baseURL: 'https://phimapi.com/',
-  timeout: 3000,
+  timeout: 5000,
   headers: {
     "Content-Type": "application/json"
   }

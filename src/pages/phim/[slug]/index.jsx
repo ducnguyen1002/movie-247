@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { HeroSingleMovie } from '@/components/common/hero-slider';
-import MovieDetailTable from '@/components/common/movie-detail-table';
-import MovieSliderBasic from '@/components/common/movie-slider-basic';
+const MovieDetailTable = dynamic(() => import('@/components/common/movie-detail-table'), { ssr: true });
+const MovieSliderBasic = dynamic(() => import('@/components/common/movie-slider-basic'), { ssr: true });
 import { getMoviesDetailBySlug, getNewUpdatedMovies } from '@/services/movie';
 
 export async function getServerSideProps(context) {
