@@ -3,6 +3,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 
 export const APP_DOMAIN_CDN_IMAGE = "https://phimimg.com/"
+export const REVALIDATION_TIME = 7200
 
 export const MOVIE_CATEGORIES = {
   PHIM_LE: "phim-le",

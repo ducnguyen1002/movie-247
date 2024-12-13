@@ -54,7 +54,7 @@ export const HeroSingleMovie = ({ movie, primaryBtnTitle, primaryBtnURL }) => (
     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950 -z-10"></div>
     <div className="flex flex-col gap-2 w-full lg:w-1/2">
       <div className='w-fit px-2 py-1 lg:px-4 lg:py-2 rounded-xl bg-gray-800 text-white text-xs font-semibold'>{movie.quality || "HD"}</div>
-      <div className='w-full h-[80px] text-xl lg:text-[64px] leading-none font-extrabold text-white line-clamp-1'>{movie.name || "..."}</div>
+      <div className='w-full h-[72px] text-xl lg:text-[64px] leading-none font-extrabold text-white line-clamp-1'>{movie.name || "..."}</div>
       <div className='text-sm text-gray-400 font-semibold mt-2 mb-4 lg:mt-4 lg:mb-8'>{movie.origin_name} &middot; {movie.year} </div>
       {movie.content && (
         <div className='mb-6 text-gray-100 font-semibold' dangerouslySetInnerHTML={{ __html: movie.content }}></div>

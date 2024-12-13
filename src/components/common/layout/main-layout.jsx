@@ -30,7 +30,7 @@ const MainLayout = ({ children }) => {
         </div>
       )}
       <TheHeader />
-      <main>{children}</main>
+      <main className='bg-gray-950 w-full'>{children}</main>
       <TheFooter />
     </>
   );

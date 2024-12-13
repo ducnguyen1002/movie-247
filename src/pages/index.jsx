@@ -6,9 +6,11 @@ const HeroSlider = dynamic(() => import('@/components/common/hero-slider'), { ss
 const MovieSliderBasic = dynamic(() => import('@/components/common/movie-slider-basic'), { ssr: false });
 const MovieSliderPrimary = dynamic(() => import('@/components/common/movie-slider-primary'), { ssr: false });
 const MovieSliderSecondary = dynamic(() => import('@/components/common/movie-slider-secondary'), { ssr: false });
-import { getMoviesByCategory, getNewUpdatedMovies } from "@/services/movie";
 
-export const getServerSideProps = async () => {
+import { getMoviesByCategory, getNewUpdatedMovies } from "@/services/movie";
+import { REVALIDATION_TIME } from '@/lib/constants';
+
+export const getStaticProps = async () => {
   const newMovies = await getNewUpdatedMovies();
   const phimLeMovies = await getMoviesByCategory("phim-le");
   const phimBoMovies = await getMoviesByCategory("phim-bo");
@@ -22,9 +24,10 @@ export const getServerSideProps = async () => {
       phimBoMovies: phimBoMovies || {},
       hoathinhMovies: hoathinhMovies || {},
       tvshowMovies: tvshowMovies || {},
-    }
-  }
-}
+    },
+    revalidate: REVALIDATION_TIME,
+  };
+};
 
 export default function Home({
   newMovies,
