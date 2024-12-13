@@ -23,16 +23,17 @@ const MainLayout = ({ children }) => {
   }, [router.events]);
 
   return (
-    <>
+    <main className='relative'>
       {loading && (
         <div className="fixed inset-0 bg-gray-950 flex items-center justify-center z-[9999]">
           <div className="w-16 h-16 border-4 border-t-transparent border-gray-300 rounded-full animate-spin"></div>
         </div>
       )}
       <TheHeader />
-      <main className='bg-gray-950 w-full -z-[9999] relative'>{children}</main>
+      <div className="absolute -z-[999] bg-gray-950 inset-0"></div>
+      <main>{children}</main>
       <TheFooter />
-    </>
+    </main>
   );
 };
 
