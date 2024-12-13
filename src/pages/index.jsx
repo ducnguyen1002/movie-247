@@ -3,9 +3,9 @@ import Head from 'next/head';
 
 const BrandMarquee = dynamic(() => import('@/components/common/brand-marquee'), { ssr: true });
 const HeroSlider = dynamic(() => import('@/components/common/hero-slider'), { ssr: true });
-const MovieSliderBasic = dynamic(() => import('@/components/common/movie-slider-basic'), { ssr: true });
-const MovieSliderPrimary = dynamic(() => import('@/components/common/movie-slider-primary'), { ssr: true });
-const MovieSliderSecondary = dynamic(() => import('@/components/common/movie-slider-secondary'), { ssr: true });
+const MovieSliderBasic = dynamic(() => import('@/components/common/movie-slider-basic'), { ssr: false });
+const MovieSliderPrimary = dynamic(() => import('@/components/common/movie-slider-primary'), { ssr: false });
+const MovieSliderSecondary = dynamic(() => import('@/components/common/movie-slider-secondary'), { ssr: false });
 import { getMoviesByCategory, getNewUpdatedMovies } from "@/services/movie";
 
 export const getServerSideProps = async () => {
