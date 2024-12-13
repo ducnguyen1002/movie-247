@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://movie-247.vercel.app/
+
+# Sitemaps
+Sitemap: https://movie-247.vercel.app/sitemap.xml
