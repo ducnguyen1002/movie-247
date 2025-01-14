@@ -7,6 +7,8 @@ export function cn(...inputs) {
 }
 
 export function getImgURL(imgURL) {
+  if (!imgURL) return "";
+
   if (imgURL.startsWith('https://')) {
     return imgURL;
   } else {
