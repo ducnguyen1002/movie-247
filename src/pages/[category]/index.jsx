@@ -28,6 +28,8 @@ export async function getServerSideProps(context) {
 }
 
 const CategoryPage = ({ movies, categorySlug, page }) => {
+  console.log(movies);
+
   const { data: { items, seoOnPage, params: { pagination: { totalItems } } } } = movies;
   const category = MOVIE_CATEGORIES.find(cat => cat.slug === categorySlug);
 
