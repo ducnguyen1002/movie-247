@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const MovieDetailTable = ({ movie }) => {
@@ -37,18 +38,18 @@ const MovieDetailTable = ({ movie }) => {
           <td className="pr-0 lg:pr-4 py-2 text-white text-sm lg:text-base">{movie.director.join(", ")}</td>
         </tr>
         <tr>
-          <td className="pr-2 lg:pr-4 py-2 font-semibold text-gray-400 min-w-[120px] text-sm lg:text-base lg:min-w-[160px]">Danh mục</td>
+          <td className="pr-2 lg:pr-4 py-2 font-semibold text-gray-400 min-w-[120px] text-sm lg:text-base lg:min-w-[160px]">Thể loại</td>
           <td className="pr-4 py-2 flex gap-1 lg:gap-2 flex-wrap">
             {movie.category.map((cat) => (
-              <span key={cat.id} className="inline-block bg-gray-200 rounded-full px-2 lg:px-4 py-1 text-sm lg:text-base lowercase">{cat.name}</span>
+              <Link href={`/the-loai/${cat.slug}`} key={cat.id} className="inline-block bg-gray-200 rounded-full px-2 lg:px-4 py-1 text-sm lg:text-base lowercase">{cat.name}</Link>
             ))}
           </td>
         </tr>
         <tr>
           <td className="pr-2 lg:pr-4 py-2 font-semibold text-gray-400 min-w-[120px] text-sm lg:text-base lg:min-w-[160px]">Quốc gia</td>
-          <td className="pr-4 py-2">
+          <td className="pr-4 py-2 flex gap-1 lg:gap-2 flex-wrap">
             {movie.country.map((cnt) => (
-              <span key={cnt.id} className="inline-block bg-gray-200 rounded-full px-2 lg:px-4 py-1 text-sm lg:text-base">{cnt.name}</span>
+              <Link href={`/quoc-gia/${cnt.slug}`} key={cnt.id} className="inline-block bg-gray-200 rounded-full px-2 lg:px-4 py-1 text-sm lg:text-base">{cnt.name}</Link>
             ))}
           </td>
         </tr>
