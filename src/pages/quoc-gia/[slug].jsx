@@ -2,8 +2,9 @@ import ThePagination from '@/components/common/the-pagination';
 import MovieCardBase from '@/components/ui/MovieCardBase';
 import Head from 'next/head';
 import React from 'react'
-import { searchMoviesByKeyword, searchMoviesByNation } from '@/services/movie';
-import { NATIONS } from '@/lib/constants';
+import { searchMoviesByNation } from '@/services/movie';
+import { DEFAULT_MOVIE_LIMIT, NATIONS } from '@/lib/constants';
+import { PaginationWithLinks } from '@/components/ui/pagination-with-links';
 
 /**
  * Trang để hiển thị các kết quả tìm kiếm theo tên
@@ -27,7 +28,7 @@ export async function getServerSideProps(context) {
 }
 
 const SearchPage = ({ movies, nationSlug, page }) => {
-  const { data: { items, seoOnPage, params: { pagination } } } = movies;
+  const { data: { items, seoOnPage, params: { pagination: { totalItems } } } } = movies;
   const nation = NATIONS.find(nation => nation.slug == nationSlug)
 
   return (
@@ -51,11 +52,7 @@ const SearchPage = ({ movies, nationSlug, page }) => {
             </React.Fragment>
           ))}
         </div>
-        {/* <ThePagination
-          currentPage={pagination.currentPage}
-          totalPages={pagination.totalPages}
-          url={`/quoc-gia`}
-        /> */}
+        <PaginationWithLinks page={page} pageSize={DEFAULT_MOVIE_LIMIT} totalCount={totalItems} />
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import { SiGmail } from "react-icons/si";
 
 export const APP_DOMAIN_CDN_IMAGE = "https://phimimg.com/"
 export const REVALIDATION_TIME = 7200
-export const DEFAULT_MOVIE_LIMIT = 20
+export const DEFAULT_MOVIE_LIMIT = 100
 
 export const MOVIE_CATEGORIES = [
   {

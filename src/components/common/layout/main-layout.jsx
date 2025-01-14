@@ -23,7 +23,7 @@ const MainLayout = ({ children }) => {
   }, [router.events]);
 
   return (
-    <main className='relative'>
+    <main className='relative max-w-[100vw] overflow-x-hidden'>
       {loading && (
         <div className="fixed inset-0 bg-gray-950 flex items-center justify-center z-[9999]">
           <div className="w-16 h-16 border-4 border-t-transparent border-gray-300 rounded-full animate-spin"></div>

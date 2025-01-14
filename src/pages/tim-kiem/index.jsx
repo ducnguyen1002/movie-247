@@ -3,6 +3,8 @@ import MovieCardBase from '@/components/ui/MovieCardBase';
 import Head from 'next/head';
 import React from 'react'
 import { searchMoviesByKeyword } from '@/services/movie';
+import { PaginationWithLinks } from '@/components/ui/pagination-with-links';
+import { DEFAULT_MOVIE_LIMIT } from '@/lib/constants';
 
 /**
  * Trang để hiển thị các kết quả tìm kiếm theo tên
@@ -20,12 +22,13 @@ export async function getServerSideProps(context) {
     props: {
       movies: movies || {},
       keyword,
+      page
     },
   };
 }
 
-const SearchPage = ({ movies, keyword }) => {
-  const { data: { items, seoOnPage, params: { pagination } } } = movies;
+const SearchPage = ({ movies, keyword, page }) => {
+  const { data: { items, seoOnPage, params: { pagination: { totalItems } } } } = movies;
 
   return (
     <>
@@ -39,7 +42,7 @@ const SearchPage = ({ movies, keyword }) => {
       <div className="container mx-auto px-4 py-16 lg:px-10 lg:py-20 bg-gray-950">
         <p className="mb-4 text-white">
           {
-            items.length ? `Tìm thấy ${items.length} kết quả tìm kiếm cho từ khóa` : `Không tìm thấy kết quả nào cho từ khóa`
+            totalItems ? `Tìm thấy ${totalItems} kết quả cho từ khóa` : `Không tìm thấy kết quả nào cho từ khóa`
           }
           <strong> {keyword}!</strong>
         </p>
@@ -51,11 +54,7 @@ const SearchPage = ({ movies, keyword }) => {
             </React.Fragment>
           ))}
         </div>
-        {/* <ThePagination
-          currentPage={pagination.currentPage}
-          totalPages={pagination.totalPages}
-          url={`/tim-kiem`}
-        /> */}
+        <PaginationWithLinks page={page} pageSize={DEFAULT_MOVIE_LIMIT} totalCount={totalItems} />
       </div>
     </>
   );

@@ -3,7 +3,8 @@ import MovieCardBase from '@/components/ui/MovieCardBase';
 import Head from 'next/head';
 import React from 'react'
 import { searchMoviesByGenre } from '@/services/movie';
-import { GENRES, NATIONS } from '@/lib/constants';
+import { DEFAULT_MOVIE_LIMIT, GENRES, NATIONS } from '@/lib/constants';
+import { PaginationWithLinks } from '@/components/ui/pagination-with-links';
 
 /**
  * Trang để hiển thị các kết quả tìm kiếm theo tên
@@ -27,7 +28,7 @@ export async function getServerSideProps(context) {
 }
 
 const SearchPage = ({ movies, genreSlug, page }) => {
-  const { data: { items, seoOnPage, params: { pagination } } } = movies;
+  const { data: { items, seoOnPage, params: { pagination: { totalItems } } } } = movies;
   const genre = GENRES.find(genre => genre.slug == genreSlug)
 
   return (
@@ -50,10 +51,7 @@ const SearchPage = ({ movies, genreSlug, page }) => {
             </React.Fragment>
           ))}
         </div>
-        {/* <ThePagination
-          currentPage={pagination.currentPage}
-          totalPages={pagination.totalPages}
-        /> */}
+        <PaginationWithLinks page={page} pageSize={DEFAULT_MOVIE_LIMIT} totalCount={totalItems} />
       </div>
     </>
   );

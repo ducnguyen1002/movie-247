@@ -30,7 +30,7 @@ export const getMoviesDetailBySlug = async (slug) => {
 
 export const searchMoviesByKeyword = async (keyword = "", page = 1) => {
   try {
-    const response = await axiosInstance.get(`v1/api/tim-kiem?keyword=${keyword}&limit=${DEFAULT_MOVIE_LIMIT}&page=${page}`);
+    const response = await axiosInstance.get(`v1/api/tim-kiem?keyword=${keyword}&page=${page}`);
     return response
   } catch (error) {
     console.log(error)
