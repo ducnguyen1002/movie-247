@@ -6,12 +6,24 @@ export const APP_DOMAIN_CDN_IMAGE = "https://phimimg.com/"
 export const REVALIDATION_TIME = 7200
 export const DEFAULT_MOVIE_LIMIT = 20
 
-export const MOVIE_CATEGORIES = {
-  PHIM_LE: "phim-le",
-  PHIM_BO: "phim-bo",
-  HOAT_HINH: "hoat-hinh",
-  TV_SHOWS: "tv-shows",
-}
+export const MOVIE_CATEGORIES = [
+  {
+    name: "Phim lẻ",
+    slug: "phim-le",
+  },
+  {
+    name: "Phim bộ",
+    slug: "phim-bo",
+  },
+  {
+    name: "Hoạt hình",
+    slug: "hoat-hinh",
+  },
+  {
+    name: "TV Shows",
+    slug: "tv-shows",
+  },
+]
 
 export const NATIONS = [
   { name: "Trung Quốc", slug: "trung-quoc" },

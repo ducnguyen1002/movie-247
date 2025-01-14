@@ -10,7 +10,7 @@ export const getNewUpdatedMovies = async (page = 1) => {
   }
 }
 
-export const getMoviesByCategory = async (category = MOVIE_CATEGORIES.PHIM_LE, page = 1, limit = DEFAULT_MOVIE_LIMIT) => {
+export const getMoviesByCategory = async (category = MOVIE_CATEGORIES[0].slug, page = 1, limit = DEFAULT_MOVIE_LIMIT) => {
   try {
     const response = await axiosInstance.get(`v1/api/danh-sach/${category}?page=${page}&limit=${limit}`);
     return response

@@ -6,8 +6,8 @@ import Head from 'next/head';
 import { MOVIE_CATEGORIES, REVALIDATION_TIME } from '@/lib/constants';
 
 export async function getStaticPaths() {
-  const paths = Object.values(MOVIE_CATEGORIES).map((category) => ({
-    params: { category },
+  const paths = MOVIE_CATEGORIES.map((category) => ({
+    params: { category: category.slug },
   }));
 
   return {
@@ -48,7 +48,7 @@ const CategoryPage = ({ movies, categorySlug }) => {
         <h1 className="mb-2 font-semibold text-3xl text-white text-center">{category.name}</h1>
         <hr
           className="mx-auto mb-6 w-1/4 h-[1px] border-0 bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700" />
-          
+
         <div className="min-h-[60vh] mb-10 grid gap-x-4 gap-y-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {items.map((item, index) => (
             <React.Fragment key={index}>
