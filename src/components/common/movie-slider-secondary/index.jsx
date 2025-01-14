@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaPlayCircle, FaRegBookmark } from 'react-icons/fa';
 import { getImgURL } from '@/lib/utils';
+import { DEFAULT_THUMB_URL } from '@/lib/constants';
 
 const MovieSliderSecondary = ({ movies }) => {
   const swiperRef = useRef();
@@ -25,7 +26,7 @@ const MovieSliderSecondary = ({ movies }) => {
         loading='eager'
         priority
         quality={10}
-        blurDataURL={getImgURL(movies[activeIndex].thumb_url)}
+        blurDataURL={DEFAULT_THUMB_URL}
         placeholder='blur'
         className="size-full absolute inset-0 -z-20 blur" />
       <div className="absolute bottom-0 right-0 h-full w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>
@@ -35,11 +36,11 @@ const MovieSliderSecondary = ({ movies }) => {
       />
       <div className="w-full lg:w-1/2">
         <div className="flex flex-col gap-2">
-          <div className='w-fit px-2 py-1 lg:px-4 lg:py-2 rounded-xl bg-gray-800 text-white text-xs font-semibold'>{movies[activeIndex].quality || "HD"}</div>
-          <div className='text-xl lg:text-[64px] leading-none font-extrabold text-white'>{movies[activeIndex].name}</div>
-          <div className='text-sm text-gray-400 font-semibold mt-2 mb-4 lg:mt-4 lg:mb-8'>{movies[activeIndex].origin_name} &middot; {movies[activeIndex].year} &middot; {movies[activeIndex].time} </div>
+          <div className='w-fit px-2 py-1 lg:px-4 lg:py-2 rounded-xl bg-gray-800 text-white text-xs font-semibold'>{movies[activeIndex]?.quality || "HD"}</div>
+          <div className='text-xl lg:text-[64px] leading-none font-extrabold text-white'>{movies[activeIndex]?.name}</div>
+          <div className='text-sm text-gray-400 font-semibold mt-2 mb-4 lg:mt-4 lg:mb-8'>{movies[activeIndex]?.origin_name} &middot; {movies[activeIndex]?.year} &middot; {movies[activeIndex]?.time} </div>
           <div className="flex gap-2">
-            <Link href={`/phim/${movies[activeIndex].slug}`}
+            <Link href={`/phim/${movies[activeIndex]?.slug}`}
               className='px-4 py-2 lg:px-8 lg:py-4 rounded-2xl flex items-center gap-2 transition-all bg-green-900 hover:bg-green-600 text-white text-sm lg:text-base font-semibold'>
               <FaPlayCircle />
               Xem chi tiết

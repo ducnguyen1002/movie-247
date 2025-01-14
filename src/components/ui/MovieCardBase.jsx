@@ -1,4 +1,5 @@
 "use client";
+import { DEFAULT_THUMB_URL } from "@/lib/constants";
 import { getImgURL } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +26,7 @@ const MovieCardBase = ({ movie }) => {
             height={600}
             loading="lazy"
             placeholder="blur"
-            blurDataURL={getImgURL(movie.poster_url)}
+            blurDataURL={DEFAULT_THUMB_URL}
             className="rounded-2xl hover:scale-105 transition-all duration-500 object-cover"
           />
         </div>
