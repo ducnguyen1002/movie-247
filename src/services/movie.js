@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/lib/axiosInstance";
-import { MOVIE_CATEGORIES } from "@/lib/constants";
+import { DEFAULT_MOVIE_LIMIT, MOVIE_CATEGORIES } from "@/lib/constants";
 
 export const getNewUpdatedMovies = async (page = 1) => {
   try {
@@ -10,7 +10,7 @@ export const getNewUpdatedMovies = async (page = 1) => {
   }
 }
 
-export const getMoviesByCategory = async (category = MOVIE_CATEGORIES.PHIM_LE, page = 1, limit = 20) => {
+export const getMoviesByCategory = async (category = MOVIE_CATEGORIES.PHIM_LE, page = 1, limit = DEFAULT_MOVIE_LIMIT) => {
   try {
     const response = await axiosInstance.get(`v1/api/danh-sach/${category}?page=${page}&limit=${limit}`);
     return response
@@ -28,9 +28,27 @@ export const getMoviesDetailBySlug = async (slug) => {
   }
 }
 
-export const searchMoviesByKeyword = async (keyword = "", limit = 20) => {
+export const searchMoviesByKeyword = async (keyword = "", page = 1) => {
   try {
-    const response = await axiosInstance.get(`v1/api/tim-kiem?keyword=${keyword}&limit=${limit}`);
+    const response = await axiosInstance.get(`v1/api/tim-kiem?keyword=${keyword}&limit=${DEFAULT_MOVIE_LIMIT}&page=${page}`);
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const searchMoviesByNation = async (nation = "", page = 1) => {
+  try {
+    const response = await axiosInstance.get(`v1/api/quoc-gia/${nation}?limit=${DEFAULT_MOVIE_LIMIT}&page=${page}`);
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const searchMoviesByGenre = async (genre = "", page = 1) => {
+  try {
+    const response = await axiosInstance.get(`v1/api/the-loai/${genre}?limit=${DEFAULT_MOVIE_LIMIT}&page=${page}`);
     return response
   } catch (error) {
     console.log(error)

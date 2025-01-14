@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/pagination";
 
 const ThePagination = ({
-  url,
   currentPage,
   totalPages,
 }) => {
