@@ -69,7 +69,7 @@ export function PaginationWithLinks({
       for (let i = 1; i <= totalPageCount; i++) {
         items.push(
           <PaginationItem key={i}>
-            <PaginationLink href={buildLink(i)} isActive={page === i}>
+            <PaginationLink href={buildLink(i) || "#"} isActive={page === i}>
               {i}
             </PaginationLink>
           </PaginationItem>,
@@ -78,7 +78,7 @@ export function PaginationWithLinks({
     } else {
       items.push(
         <PaginationItem key={1}>
-          <PaginationLink href={buildLink(1)} isActive={page === 1}>
+          <PaginationLink href={buildLink(1) || "#"} isActive={page === 1}>
             1
           </PaginationLink>
         </PaginationItem>,
@@ -98,7 +98,7 @@ export function PaginationWithLinks({
       for (let i = start; i <= end; i++) {
         items.push(
           <PaginationItem key={i}>
-            <PaginationLink href={buildLink(i)} isActive={page === i}>
+            <PaginationLink href={buildLink(i) || "#"} isActive={page === i}>
               {i}
             </PaginationLink>
           </PaginationItem>,

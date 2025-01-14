@@ -8,14 +8,13 @@ const MovieSliderPrimary = dynamic(() => import('@/components/common/movie-slide
 const MovieSliderSecondary = dynamic(() => import('@/components/common/movie-slider-secondary'), { ssr: false });
 
 import { getMoviesByCategory, getNewUpdatedMovies } from "@/services/movie";
-import { REVALIDATION_TIME } from '@/lib/constants';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const newMovies = await getNewUpdatedMovies();
-  const phimLeMovies = await getMoviesByCategory("phim-le");
-  const phimBoMovies = await getMoviesByCategory("phim-bo");
-  const hoathinhMovies = await getMoviesByCategory("hoat-hinh");
-  const tvshowMovies = await getMoviesByCategory("tv-shows");
+  const phimLeMovies = await getMoviesByCategory("phim-le", 1, 10);
+  const phimBoMovies = await getMoviesByCategory("phim-bo", 1, 10);
+  const hoathinhMovies = await getMoviesByCategory("hoat-hinh", 1, 10);
+  const tvshowMovies = await getMoviesByCategory("tv-shows", 1, 10);
 
   return {
     props: {
@@ -25,7 +24,6 @@ export const getStaticProps = async () => {
       hoathinhMovies: hoathinhMovies || {},
       tvshowMovies: tvshowMovies || {},
     },
-    revalidate: REVALIDATION_TIME,
   };
 };
 
@@ -36,6 +34,12 @@ export default function Home({
   hoathinhMovies,
   tvshowMovies
 }) {
+  console.log(newMovies,
+    phimLeMovies,
+    phimBoMovies,
+    hoathinhMovies,
+    tvshowMovies);
+
   return (
     <>
       <Head>

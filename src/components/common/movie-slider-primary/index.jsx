@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import MovieCardPrimary from '@/components/ui/MovieCardPrimary';
+import MovieCardHorizontal from '@/components/ui/MovieCardHorizontal';
 
 const MovieSliderPrimary = ({ title, movies }) => {
   const swiperRef = useRef();
@@ -20,13 +21,13 @@ const MovieSliderPrimary = ({ title, movies }) => {
         slidesPerView={4.5}
         breakpoints={{
           320: {
-            slidesPerView: 2.2, // Mobile
+            slidesPerView: 1.2, // Mobile
           },
           768: {
-            slidesPerView: 3.5, // Tablet
+            slidesPerView: 2.2, // Tablet
           },
           1024: {
-            slidesPerView: 4.5, // Desktop
+            slidesPerView: 2.5, // Desktop
           },
         }}
         onBeforeInit={(swiper) => {
@@ -41,7 +42,7 @@ const MovieSliderPrimary = ({ title, movies }) => {
       >
         {movies.map((movie, index) => (
           <SwiperSlide key={index}>
-            <MovieCardPrimary movie={movie} />
+            <MovieCardHorizontal movie={movie} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -60,7 +61,7 @@ const MovieSliderPrimary = ({ title, movies }) => {
       {/* Nút Next */}
       {!isEnd && (
         <div className='hidden lg:block'>
-          <div className="absolute bottom-0 right-0 h-full w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>
+          <div className="absolute bottom-0 right-0 h-[80%] w-1/5 z-20 bg-gradient-to-r from-transparent to-gray-950 pointer-events-none"></div>
           <FaCircleChevronRight
             className="absolute z-30 top-1/2 right-6 text-gray-300 hover:text-gray-200 text-3xl cursor-pointer"
             onClick={() => swiperRef.current?.slideNext()}

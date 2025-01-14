@@ -3,7 +3,7 @@ import { DEFAULT_MOVIE_LIMIT, MOVIE_CATEGORIES } from "@/lib/constants";
 
 export const getNewUpdatedMovies = async (page = 1) => {
   try {
-    const response = await axiosInstance.get(`danh-sach/phim-moi-cap-nhat?page=${page}`);
+    const response = await axiosInstance.get(`danh-sach/phim-moi-cap-nhat?page=${page}&limit=${DEFAULT_MOVIE_LIMIT}`);
     return response
   } catch (error) {
     console.log(error)

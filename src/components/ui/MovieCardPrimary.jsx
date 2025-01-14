@@ -1,4 +1,3 @@
-import { DEFAULT_THUMB_URL } from "@/lib/constants"
 import { getImgURL } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
@@ -18,7 +17,7 @@ export const MovieCardPrimary = ({ movie }) => {
           style={{ objectFit: "cover" }}
           loading="eager"
           placeholder="blur"
-          blurDataURL={DEFAULT_THUMB_URL}
+          blurDataURL={getImgURL(movie.poster_url)}
           className='group-hover:scale-105 transition-all duration-500'
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>

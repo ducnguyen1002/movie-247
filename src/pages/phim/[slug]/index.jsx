@@ -4,6 +4,8 @@ import { HeroSingleMovie } from '@/components/common/hero-slider';
 const MovieDetailTable = dynamic(() => import('@/components/common/movie-detail-table'), { ssr: true });
 const MovieSliderBasic = dynamic(() => import('@/components/common/movie-slider-basic'), { ssr: true });
 import { getMoviesDetailBySlug, getNewUpdatedMovies } from '@/services/movie';
+import Image from 'next/image';
+import { getImgURL } from '@/lib/utils';
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
@@ -35,8 +37,16 @@ const MovieDetailPage = ({ movie, slug, episodes, newMovies }) => {
       <div>
         <HeroSingleMovie movie={movie} primaryBtnTitle="Xem ngay" primaryBtnURL={`/phim/${slug}/watch`} />
         <div className="container mx-auto px-4 lg:px-10 py-10 bg-gray-950">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto flex flex-col-reverse lg:flex-row">
             <MovieDetailTable movie={movie} />
+            <div className="mb-6 lg:mb-0 w-full lg:w-1/2 flex justify-center items-center">
+              <Image
+                className='rounded-xl h-[560px] border-[2px] border-gray-300'
+                src={getImgURL(movie.poster_url)}
+                alt={movie.name}
+                width={400}
+                height={800}
+              /></div>
           </div>
         </div>
         <MovieSliderBasic movies={newMovies.items} title={"Phim mới cập nhật"} />
